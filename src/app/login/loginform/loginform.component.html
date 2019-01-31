@@ -1,0 +1,36 @@
+
+  <mat-card-header>
+    <mat-card-title><h2 style=" margin: 30px 750px; ">ADMIN-LOGIN</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card class="example-card">
+    <div class="container">
+      <a>
+        <img src="assets/img.png">
+      </a>
+    </div>
+    <hr class="between" />
+    <form class="example-form" [formGroup]="logform" class="form">
+        <div class="example-container">
+            <mat-label>username</mat-label>
+            <mat-form-field>
+              
+              <input matInput placeholder="Input" formControlName="uname">
+              <mat-error *ngIf="logform.get('uname').invalid && logform.get('uname').touched">enter username</mat-error>
+            </mat-form-field>
+
+           <mat-label>password</mat-label>
+            <mat-form-field>
+              <input matInput placeholder="password" formControlName="psw">
+              <mat-error *ngIf="logform.get('psw').invalid && logform.get('psw').touched">
+                  <mat-error *ngIf="logform.get('psw').errors.required">please enter password</mat-error>
+                  <mat-error *ngIf="logform.get('psw').errors.minlength">password must be 6 charater </mat-error>
+              </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+    
+  
+  <mat-card-actions align="center">
+    <button mat-raised-button  color="primary" (click)="onclick()" [disabled]="logform.invalid">Login</button>
+  </mat-card-actions>
+</mat-card>
